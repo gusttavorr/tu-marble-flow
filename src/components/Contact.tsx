@@ -52,8 +52,6 @@ const Contact = () => {
               <div>
                 <h3 className="font-serif text-lg font-medium text-foreground mb-1">E-mail</h3>
                 <p className="text-sm text-muted-foreground">atendimento@itumarmores.com.br</p>
-                <p className="text-sm text-muted-foreground">orcamentos@itumarmores.com.br</p>
-              </div>
               </div>
             </div>
             <div className="flex gap-4">
