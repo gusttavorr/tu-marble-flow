@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logoItu from "@/assets/logo-itu-clean.png";
+import logoItu from "@/assets/logo-itu-final.png";
 
 const navLinks = [
   { label: "Início", href: "#inicio" },
