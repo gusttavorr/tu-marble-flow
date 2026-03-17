@@ -18,7 +18,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <div className="container-narrow flex items-center justify-between h-20 md:h-24 px-5 md:px-8 lg:px-16">
         <a href="#inicio">
           <img src={logoItu} alt="Itu Mármores e Granitos - Desde 1968" className="h-16 md:h-20 w-auto" />
