@@ -1,9 +1,11 @@
+import logoItu from "@/assets/logo-itu.png";
+
 const Footer = () => (
   <footer className="bg-foreground text-primary-foreground/50 py-12 px-5 md:px-8 lg:px-16">
     <div className="container-narrow flex flex-col md:flex-row items-center justify-between gap-6">
-      <div>
-        <span className="font-serif text-lg text-primary-foreground font-medium">Itu Mármores & Granitos</span>
-        <p className="text-xs mt-1">Tradição desde 1968 · Itu, SP</p>
+      <div className="flex items-center gap-3">
+        <img src={logoItu} alt="Itu Mármores e Granitos" className="h-10 w-auto brightness-200" />
+        <p className="text-xs">Tradição desde 1968 · Itu, SP</p>
       </div>
       <div className="flex gap-6 text-xs">
         <a href="#inicio" className="hover:text-primary-foreground transition-colors">Início</a>
