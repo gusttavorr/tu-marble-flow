@@ -48,7 +48,7 @@ const Header = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 text-foreground"
+          className="lg:hidden p-2 text-primary-foreground"
           aria-label="Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
