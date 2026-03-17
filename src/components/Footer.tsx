@@ -1,4 +1,4 @@
-import logoItu from "@/assets/logo-itu-final.png";
+import logoItu from "@/assets/logo-itu-original.png";
 
 const Footer = () => (
   <footer className="bg-foreground text-primary-foreground/50 py-12 px-5 md:px-8 lg:px-16">
