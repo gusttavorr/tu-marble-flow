@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import kitchenImg from "@/assets/service-kitchen.jpg";
+import kitchenImg from "@/assets/hero-kitchen.jpg";
 import bathroomImg from "@/assets/service-bathroom.jpg";
 import stairsImg from "@/assets/service-stairs.jpg";
 import gourmetImg from "@/assets/service-gourmet.jpg";
