@@ -33,18 +33,27 @@ const Contact = () => {
               <div>
                 <h3 className="font-serif text-lg font-medium text-foreground mb-1">Endereço</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Rua das Pedras, 1968<br />
-                  Centro, Itu - SP<br />
-                  CEP 13300-000
+                  Rodovia Presidente Dutra, KM203<br />
+                  Caixa Postal 176<br />
+                  Arujá - SP<br />
+                  CEP: 07400-970
                 </p>
               </div>
             </div>
             <div className="flex gap-4">
               <Phone size={20} className="text-primary mt-1 flex-shrink-0" strokeWidth={1.5} />
               <div>
-                <h3 className="font-serif text-lg font-medium text-foreground mb-1">Telefone & WhatsApp</h3>
-                <p className="text-sm text-muted-foreground">(11) 99999-9999</p>
-                <p className="text-sm text-muted-foreground">(11) 4023-0000</p>
+                <h3 className="font-serif text-lg font-medium text-foreground mb-1">Telefone</h3>
+                <p className="text-sm text-muted-foreground">(11) 4655-2288</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <Mail size={20} className="text-primary mt-1 flex-shrink-0" strokeWidth={1.5} />
+              <div>
+                <h3 className="font-serif text-lg font-medium text-foreground mb-1">E-mail</h3>
+                <p className="text-sm text-muted-foreground">atendimento@itumarmores.com.br</p>
+                <p className="text-sm text-muted-foreground">orcamentos@itumarmores.com.br</p>
+              </div>
               </div>
             </div>
             <div className="flex gap-4">
