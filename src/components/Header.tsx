@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logoItu from "@/assets/logo-itu.png";
 
 const navLinks = [
   { label: "Início", href: "#inicio" },
@@ -19,11 +20,8 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/50">
       <div className="container-narrow flex items-center justify-between h-16 md:h-20 px-5 md:px-8 lg:px-16">
-        <a href="#inicio" className="flex flex-col leading-none">
-          <span className="font-serif text-lg md:text-xl font-semibold text-foreground tracking-tight">
-            Itu Mármores
-          </span>
-          <span className="label-caps text-[0.6rem] text-muted-foreground mt-0.5">& Granitos · Desde 1968</span>
+        <a href="#inicio">
+          <img src={logoItu} alt="Itu Mármores e Granitos - Desde 1968" className="h-12 md:h-14 w-auto" />
         </a>
 
         {/* Desktop Nav */}
