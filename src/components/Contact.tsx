@@ -71,7 +71,7 @@ const Contact = () => {
             className="aspect-video w-full"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.5!2d-47.299!3d-23.264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDE1JzUwLjQiUyA0N8KwMTcnNTYuNCJX!5e0!3m2!1spt-BR!2sbr!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3660.0!2d-46.3222!3d-23.3967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce8a0a0a0a0a0a%3A0x0!2sRodovia+Presidente+Dutra+KM203+Aruj%C3%A1+SP!5e0!3m2!1spt-BR!2sbr!4v1"
               width="100%"
               height="100%"
               style={{ border: 0 }}

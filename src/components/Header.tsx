@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import logoItu from "@/assets/logo-itu-final.png";
+import logoItu from "@/assets/logo-itu-original.png";
 
 const navLinks = [
   { label: "Início", href: "#inicio" },
@@ -30,7 +30,7 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-sm text-primary-foreground hover:text-primary transition-colors duration-200"
             >
               {link.label}
             </a>
@@ -48,7 +48,7 @@ const Header = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 text-foreground"
+          className="lg:hidden p-2 text-primary-foreground"
           aria-label="Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
