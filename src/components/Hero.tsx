@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import heroImg from "@/assets/hero-kitchen.jpg";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá! Gostaria de solicitar um orçamento consultivo.";
+const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá! Gostaria de solicitar um orçamento consultivo.";
 
 const Hero = () => {
   return (

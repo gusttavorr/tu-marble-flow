@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre os serviços da Itu Mármores.";
+const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá! Gostaria de saber mais sobre os serviços da Itu Mármores.";
 
 const WhatsAppButton = () => (
   <a

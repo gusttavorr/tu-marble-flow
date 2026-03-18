@@ -12,7 +12,7 @@ const navLinks = [
   { label: "Contato", href: "#contato" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/5511999999999?text=Olá! Gostaria de solicitar um orçamento.";
+const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá! Gostaria de solicitar um orçamento.";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
