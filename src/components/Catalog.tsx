@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
+import { Search, X } from "lucide-react";
 
 type Product = {
   name: string;
@@ -90,12 +91,30 @@ const WHATSAPP_URL = "https://wa.me/5511988124466?text=";
 const Catalog = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeCategory, setActiveCategory] = useState("granitos");
+  const [activeCategory, setActiveCategory] = useState("todos");
   const [visibleCount, setVisibleCount] = useState(12);
+  const [search, setSearch] = useState("");
 
-  const currentCategory = categories.find((c) => c.id === activeCategory)!;
-  const visibleProducts = currentCategory.products.slice(0, visibleCount);
-  const hasMore = visibleCount < currentCategory.products.length;
+  const allProducts = useMemo(
+    () => categories.flatMap((c) => c.products.map((p) => ({ ...p, category: c.label }))),
+    []
+  );
+
+  const filteredProducts = useMemo(() => {
+    const source = activeCategory === "todos"
+      ? allProducts
+      : categories.find((c) => c.id === activeCategory)!.products;
+
+    if (!search.trim()) return source;
+
+    const query = search.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return source.filter((p) =>
+      p.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(query)
+    );
+  }, [activeCategory, search, allProducts]);
+
+  const visibleProducts = filteredProducts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProducts.length;
 
   const handleCategoryChange = (id: string) => {
     setActiveCategory(id);
@@ -127,8 +146,41 @@ const Catalog = () => {
           </p>
         </motion.div>
 
+        {/* Search Bar */}
+        <div className="max-w-md mx-auto mb-8">
+          <div className="relative">
+            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+            <input
+              type="text"
+              placeholder="Pesquisar produto (ex: Branco Polar, Preto Absoluto...)"
+              value={search}
+              onChange={(e) => { setSearch(e.target.value); setVisibleCount(12); }}
+              className="w-full bg-background border border-border text-foreground placeholder:text-muted-foreground pl-11 pr-10 py-3 text-sm focus:outline-none focus:border-primary transition-colors"
+            />
+            {search && (
+              <button
+                onClick={() => setSearch("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
+                <X size={16} />
+              </button>
+            )}
+          </div>
+        </div>
+
         {/* Category Tabs */}
-        <div className="flex justify-center gap-2 mb-10">
+        <div className="flex justify-center gap-2 mb-10 flex-wrap">
+          <button
+            onClick={() => handleCategoryChange("todos")}
+            className={`px-6 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 ${
+              activeCategory === "todos"
+                ? "bg-foreground text-primary-foreground"
+                : "bg-background text-muted-foreground hover:text-foreground border border-border"
+            }`}
+          >
+            Todos
+            <span className="ml-2 text-xs opacity-60">({allProducts.length})</span>
+          </button>
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -147,7 +199,7 @@ const Catalog = () => {
 
         {/* Product Grid */}
         <motion.div
-          key={activeCategory}
+          key={activeCategory + search}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -181,6 +233,13 @@ const Catalog = () => {
           ))}
         </motion.div>
 
+        {/* No results */}
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">Nenhum produto encontrado para "{search}"</p>
+          </div>
+        )}
+
         {/* Load More */}
         {hasMore && (
           <div className="text-center mt-8">
@@ -188,7 +247,7 @@ const Catalog = () => {
               onClick={() => setVisibleCount((prev) => prev + 12)}
               className="bg-foreground text-primary-foreground px-8 py-3 text-sm font-medium tracking-wide hover:opacity-90 transition-opacity"
             >
-              Ver mais pedras ({currentCategory.products.length - visibleCount} restantes)
+              Ver mais pedras ({filteredProducts.length - visibleCount} restantes)
             </button>
           </div>
         )}
