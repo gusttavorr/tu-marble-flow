@@ -20,7 +20,7 @@ const QuoteForm = () => {
     e.preventDefault();
     const text = `Olá! Meu nome é ${form.name}.%0A%0ATipo de projeto: ${form.type}%0A%0A${form.message}`;
     const phone = form.whatsapp.replace(/\D/g, "");
-    window.open(`https://wa.me/5511999999999?text=${text}`, "_blank");
+    window.open(`https://wa.me/5511988124466?text=${text}`, "_blank");
   };
 
   return (
