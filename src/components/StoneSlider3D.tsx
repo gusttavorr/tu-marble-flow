@@ -1,21 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const BASE_IMG = "http://www.itumarmores.com.br/area_restrita/img_produtos";
-
-const stones = [
-  { name: "Branco Polar", image: `${BASE_IMG}/13.jpg` },
-  { name: "Preto Absoluto", image: `${BASE_IMG}/36.jpg` },
-  { name: "Amarelo Ornamental", image: `${BASE_IMG}/5.jpg` },
-  { name: "Verde Ubatuba", image: `${BASE_IMG}/48.jpg` },
-  { name: "Bordeaux", image: `${BASE_IMG}/7.jpg` },
-  { name: "Carrara", image: `${BASE_IMG}/12.jpg` },
-  { name: "Red Dragon", image: `${BASE_IMG}/38.jpg` },
-  { name: "Ocean Blue", image: `${BASE_IMG}/33.jpg` },
-  { name: "Branco Itaúnas", image: `${BASE_IMG}/9.jpg` },
-  { name: "Verde Pavão", image: `${BASE_IMG}/43.jpg` },
-];
+import { useNavigate } from "react-router-dom";
+import { stones } from "@/data/stones";
 
 const VISIBLE_COUNT = 5;
 const AUTO_INTERVAL = 3000;
@@ -23,6 +10,7 @@ const AUTO_INTERVAL = 3000;
 const StoneSlider3D = () => {
   const [centerIndex, setCenterIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isHovered) return;
@@ -62,7 +50,7 @@ const StoneSlider3D = () => {
             Explore Nossas Pedras
           </h2>
           <p className="text-primary-foreground/60 max-w-xl mx-auto">
-            Navegue pela nossa coleção de mármores e granitos em uma experiência imersiva.
+            Clique em qualquer pedra para conhecer sua história e características.
           </p>
         </motion.div>
 
@@ -104,6 +92,7 @@ const StoneSlider3D = () => {
                     transformStyle: "preserve-3d",
                   }}
                   whileHover={isCenter ? { scale: 1.15, rotateY: 5 } : {}}
+                  onClick={() => navigate(`/pedra/${slide.id}`)}
                 >
                   <div
                     className="relative overflow-hidden border-2"
@@ -124,7 +113,6 @@ const StoneSlider3D = () => {
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
-                    {/* Reflection / shine effect */}
                     <div
                       className="absolute inset-0 pointer-events-none"
                       style={{
@@ -148,7 +136,6 @@ const StoneSlider3D = () => {
             })}
           </AnimatePresence>
 
-          {/* Navigation */}
           <button
             onClick={prev}
             className="absolute left-2 md:left-8 z-20 p-3 bg-primary/20 hover:bg-primary/40 text-primary-foreground rounded-full backdrop-blur-sm transition-colors"
@@ -163,7 +150,6 @@ const StoneSlider3D = () => {
           </button>
         </div>
 
-        {/* Dots */}
         <div className="flex justify-center gap-2 mt-8">
           {stones.map((_, i) => (
             <button
