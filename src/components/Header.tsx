@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import logoItu from "@/assets/logo-itu-original.png";
 
-const navLinks = [
+const navLinks: { label: string; href: string; isRoute?: boolean }[] = [
   { label: "Início", href: "#inicio" },
   { label: "Sobre", href: "#sobre" },
+  { label: "Quem Somos", href: "/sobre-nos", isRoute: true },
   { label: "Serviços", href: "#servicos" },
   { label: "Catálogo", href: "#catalogo" },
   { label: "Portfólio", href: "#portfolio" },
@@ -14,6 +16,24 @@ const navLinks = [
 ];
 
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá! Gostaria de solicitar um orçamento.";
+
+const NavItem = ({ link, onClick }: { link: typeof navLinks[0]; onClick?: () => void }) => {
+  const className = "text-sm text-primary-foreground hover:text-primary transition-colors duration-200";
+  const mobileClassName = "text-sm text-muted-foreground hover:text-foreground py-2";
+
+  if (link.isRoute) {
+    return (
+      <Link to={link.href} onClick={onClick} className={onClick ? mobileClassName : className}>
+        {link.label}
+      </Link>
+    );
+  }
+  return (
+    <a href={link.href} onClick={onClick} className={onClick ? mobileClassName : className}>
+      {link.label}
+    </a>
+  );
+};
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,13 +48,7 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-primary-foreground hover:text-primary transition-colors duration-200"
-            >
-              {link.label}
-            </a>
+            <NavItem key={link.href} link={link} />
           ))}
           <a
             href={WHATSAPP_URL}
@@ -67,14 +81,7 @@ const Header = () => {
           >
             <div className="px-5 py-4 flex flex-col gap-3">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-sm text-muted-foreground hover:text-foreground py-2"
-                >
-                  {link.label}
-                </a>
+                <NavItem key={link.href} link={link} onClick={() => setIsOpen(false)} />
               ))}
               <a
                 href={WHATSAPP_URL}
