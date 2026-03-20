@@ -4,6 +4,7 @@ import { ArrowLeft, MessageCircle, MapPin, Layers, Sparkles, CheckCircle } from 
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
+import StoneProjectVisualizer from "@/components/StoneProjectVisualizer";
 
 const WHATSAPP_BASE = "https://wa.me/5511988124466?text=";
 
@@ -126,6 +127,9 @@ const StonePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Project Visualizer */}
+      <StoneProjectVisualizer stone={stone} />
 
       {/* History */}
       <section className="bg-muted/30 border-y border-border">
