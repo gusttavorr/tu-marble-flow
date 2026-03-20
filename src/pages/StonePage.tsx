@@ -4,6 +4,7 @@ import { ArrowLeft, MessageCircle, MapPin, Layers, Sparkles, CheckCircle } from 
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect } from "react";
+import StoneProjectVisualizer from "@/components/StoneProjectVisualizer";
 
 const WHATSAPP_BASE = "https://wa.me/5511988124466?text=";
 
