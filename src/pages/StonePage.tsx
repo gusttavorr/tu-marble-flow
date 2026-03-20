@@ -128,6 +128,9 @@ const StonePage = () => {
         </div>
       </section>
 
+      {/* Project Visualizer */}
+      <StoneProjectVisualizer stone={stone} />
+
       {/* History */}
       <section className="bg-muted/30 border-y border-border">
         <div className="container-narrow py-16 md:py-24">
