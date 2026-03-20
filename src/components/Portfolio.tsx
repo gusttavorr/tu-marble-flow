@@ -7,6 +7,8 @@ import exteriorImg from "@/assets/portfolio-exterior-1.jpg";
 import claddingImg from "@/assets/service-cladding.jpg";
 import stairsImg from "@/assets/service-stairs.jpg";
 
+const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
+
 const categories = ["Todos", "Cozinhas", "Banheiros", "Áreas Externas"] as const;
 
 const projects = [
@@ -36,9 +38,10 @@ const Portfolio = () => {
         >
           <div>
             <span className="label-caps text-primary mb-4 block">Portfólio</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight">
-              Projetos que falam por si
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight mb-2">
+              Veja Projetos Reais que Já Entregamos
             </h2>
+            <p className="text-muted-foreground">Qualidade comprovada em cada detalhe. Solicite seu orçamento rápido pelo WhatsApp.</p>
           </div>
           <div className="flex gap-2 flex-wrap">
             {categories.map((cat) => (
@@ -85,6 +88,22 @@ const Portfolio = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="mt-12 text-center"
+        >
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium tracking-wide text-primary-foreground bg-foreground hover:opacity-90 transition-opacity"
+          >
+            Falar no WhatsApp
+          </a>
+        </motion.div>
       </div>
     </section>
   );
