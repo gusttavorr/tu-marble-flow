@@ -6,6 +6,8 @@ import stairsImg from "@/assets/service-stairs.jpg";
 import gourmetImg from "@/assets/service-gourmet.jpg";
 import claddingImg from "@/assets/service-cladding.jpg";
 
+const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
+
 const services = [
   { title: "Bancadas de Cozinha", desc: "Execução milimétrica com veios contínuos e acabamento em meia-esquadria invisível.", img: kitchenImg, alt: "Bancada de cozinha em mármore branco pela Itu Mármores" },
   { title: "Banheiros", desc: "Projetos completos com paredes, pisos e bancadas em mármore para ambientes de spa.", img: bathroomImg, alt: "Banheiro revestido em mármore branco com acabamento de alto padrão" },
@@ -27,10 +29,13 @@ const Services = () => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-xl mb-16"
         >
-          <span className="label-caps text-primary mb-4 block">Nossos Serviços</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight">
-            Excelência em cada detalhe
+          <span className="label-caps text-primary mb-4 block">O Que Fazemos</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight mb-3">
+            Soluções Sob Medida para Valorizar Seu Espaço
           </h2>
+          <p className="text-muted-foreground">
+            Mais de 100 clientes atendidos com excelência. Cada projeto é único e feito para durar.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -57,6 +62,22 @@ const Services = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-12 text-center"
+        >
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium tracking-wide text-primary-foreground bg-foreground hover:opacity-90 transition-opacity"
+          >
+            Quero Meu Projeto Sob Medida
+          </a>
+        </motion.div>
       </div>
     </section>
   );

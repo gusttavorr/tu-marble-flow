@@ -2,6 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Star } from "lucide-react";
 
+const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
+
 const testimonials = [
   {
     name: "Arq. Fernanda Lima",
@@ -34,9 +36,10 @@ const Testimonials = () => {
           className="max-w-xl mb-16"
         >
           <span className="label-caps text-primary mb-4 block">Depoimentos</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight mb-2">
             A confiança de quem já escolheu
           </h2>
+          <p className="text-muted-foreground">Mais de 100 clientes atendidos com excelência</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -63,6 +66,23 @@ const Testimonials = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-12 text-center"
+        >
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium tracking-wide transition-opacity hover:opacity-90"
+            style={{ backgroundColor: "#25D366", color: "#fff" }}
+          >
+            Falar no WhatsApp
+          </a>
+        </motion.div>
       </div>
     </section>
   );

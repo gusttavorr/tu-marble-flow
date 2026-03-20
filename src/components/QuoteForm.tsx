@@ -19,7 +19,6 @@ const QuoteForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const text = `Olá! Meu nome é ${form.name}.%0A%0ATipo de projeto: ${form.type}%0A%0A${form.message}`;
-    const phone = form.whatsapp.replace(/\D/g, "");
     window.open(`https://wa.me/5511988124466?text=${text}`, "_blank");
   };
 
@@ -34,15 +33,16 @@ const QuoteForm = () => {
           >
             <span className="label-caps text-primary mb-4 block">Orçamento</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-primary-foreground leading-tight mb-6">
-              Inicie seu projeto conosco
+              Solicite Seu Orçamento Agora
             </h2>
             <p className="text-primary-foreground/60 leading-relaxed mb-8">
-              Preencha o formulário e nossa equipe entrará em contato pelo WhatsApp para um atendimento consultivo personalizado. Sem compromisso.
+              Atendimento ágil e sem compromisso. Preencha o formulário e nossa equipe entra em contato pelo WhatsApp para um atendimento consultivo personalizado.
             </p>
             <div className="flex flex-col gap-2 text-primary-foreground/50 text-sm">
               <span>✦ Resposta em até 2 horas úteis</span>
               <span>✦ Orçamento detalhado e transparente</span>
               <span>✦ Visita técnica sem custo</span>
+              <span>✦ Projetos em 3D antes da execução</span>
             </div>
           </motion.div>
 
@@ -89,10 +89,11 @@ const QuoteForm = () => {
             />
             <button
               type="submit"
-              className="bg-primary text-primary-foreground px-8 py-4 text-sm font-medium tracking-wide hover:opacity-90 transition-opacity flex items-center justify-center gap-2 mt-2"
+              className="px-8 py-4 text-sm font-medium tracking-wide hover:opacity-90 transition-opacity flex items-center justify-center gap-2 mt-2"
+              style={{ backgroundColor: "#25D366", color: "#fff" }}
             >
               <Send size={16} />
-              Iniciar Atendimento Exclusivo
+              Solicitar Orçamento Agora
             </button>
           </motion.form>
         </div>

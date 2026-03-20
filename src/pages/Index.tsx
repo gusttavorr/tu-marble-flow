@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import Highlights from "@/components/Highlights";
 import StoneSlider3D from "@/components/StoneSlider3D";
 import Catalog from "@/components/Catalog";
 import Portfolio from "@/components/Portfolio";
@@ -18,6 +19,7 @@ const Index = () => (
       <Hero />
       <About />
       <Services />
+      <Highlights />
       <StoneSlider3D />
       <Catalog />
       <Portfolio />
