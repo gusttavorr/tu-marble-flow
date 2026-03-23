@@ -1,7 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useMemo } from "react";
-import { Search, X } from "lucide-react";
-
+import { Search, X, Eye } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { stones } from "@/data/stones";
 type Product = {
   name: string;
   image: string;
