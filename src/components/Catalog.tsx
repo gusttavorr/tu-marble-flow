@@ -135,6 +135,20 @@ const Catalog = () => {
     setVisibleCount(12);
   };
 
+  const handleProductClick = (productName: string) => {
+    const stoneId = stones.find(
+      (s) => s.name.toLowerCase() === productName.toLowerCase()
+    )?.id;
+    if (stoneId) {
+      navigate(`/pedra/${stoneId}`);
+    } else {
+      handleWhatsApp(productName);
+    }
+  };
+  
+  const getStoneId = (productName: string) =>
+    stones.find((s) => s.name.toLowerCase() === productName.toLowerCase())?.id;
+
   const handleWhatsApp = (productName: string) => {
     const text = encodeURIComponent(
       `Olá! Gostaria de saber mais sobre o ${productName}. Podem me enviar informações e valores?`
