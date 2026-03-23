@@ -233,31 +233,43 @@ const Catalog = () => {
           transition={{ duration: 0.3 }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4"
         >
-          {visibleProducts.map((product, index) => (
-            <motion.button
-              key={product.name}
-              initial={{ opacity: 0, y: 15 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.4,
-                delay: Math.min(index * 0.03, 0.3),
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              onClick={() => handleWhatsApp(product.name)}
-              className="group text-left"
-            >
-              <div className="aspect-square overflow-hidden bg-muted mb-2 border border-border">
-                <img
-                  src={product.image}
-                  alt={`${product.name} - Itu Mármores`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
-              <span className="text-xs font-medium text-foreground group-hover:text-primary transition-colors leading-tight block">
-                {product.name}
-              </span>
-            </motion.button>
+          {visibleProducts.map((product, index) => {
+            const hasDetailPage = !!getStoneId(product.name);
+            return (
+              <motion.button
+                key={product.name}
+                initial={{ opacity: 0, y: 15 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.4,
+                  delay: Math.min(index * 0.03, 0.3),
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                onClick={() => handleProductClick(product.name)}
+                className="group text-left"
+              >
+                <div className="aspect-square overflow-hidden bg-muted mb-2 border border-border relative">
+                  <img
+                    src={product.image}
+                    alt={`${product.name} - Itu Mármores`}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  {hasDetailPage && (
+                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-center justify-center">
+                      <Eye size={24} className="text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                  )}
+                </div>
+                <span className="text-xs font-medium text-foreground group-hover:text-primary transition-colors leading-tight block">
+                  {product.name}
+                </span>
+                {hasDetailPage && (
+                  <span className="text-[10px] text-primary">Ver projeto 3D →</span>
+                )}
+              </motion.button>
+            );
+          })}
           ))}
         </motion.div>
 
