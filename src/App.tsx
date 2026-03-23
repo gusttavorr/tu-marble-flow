@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import AboutTeam from "./pages/AboutTeam.tsx";
+import Showroom from "./pages/Showroom.tsx";
 import StonePage from "./pages/StonePage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
