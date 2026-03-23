@@ -28,39 +28,43 @@ const Portfolio = () => {
   const filtered = filter === "Todos" ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <section id="portfolio" className="section-padding bg-secondary" ref={ref}>
+    <section id="portfolio" className="section-padding" ref={ref}>
       <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
-        >
-          <div>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
             <span className="label-caps text-primary mb-4 block">Portfólio</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight mb-2">
-              Veja Projetos Reais que Já Entregamos
+            <div className="line-accent mb-8" />
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight mb-3">
+              Projetos Reais que{" "}
+              <span className="italic text-primary">Já Entregamos</span>
             </h2>
-            <p className="text-muted-foreground">Qualidade comprovada em cada detalhe. Solicite seu orçamento rápido pelo WhatsApp.</p>
-          </div>
+            <p className="text-muted-foreground max-w-lg">
+              Qualidade comprovada em cada detalhe. Solicite seu orçamento rápido pelo WhatsApp.
+            </p>
+          </motion.div>
+
           <div className="flex gap-2 flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`px-4 py-2 text-sm transition-colors duration-200 ${
+                className={`px-5 py-2.5 text-[13px] font-medium tracking-wide transition-all duration-300 ${
                   filter === cat
                     ? "bg-foreground text-primary-foreground"
-                    : "bg-background text-muted-foreground hover:text-foreground"
+                    : "border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"
                 }`}
               >
                 {cat}
               </button>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           {filtered.map((project, i) => (
             <motion.div
               key={project.title}
@@ -75,14 +79,14 @@ const Portfolio = () => {
                 <img
                   src={project.img}
                   alt={project.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                <div>
-                  <span className="label-caps text-primary block mb-1">{project.material}</span>
-                  <h3 className="font-serif text-xl text-primary-foreground">{project.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6 md:p-8">
+                <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <span className="label-caps text-primary block mb-2">{project.material}</span>
+                  <h3 className="font-serif text-xl md:text-2xl text-white font-semibold">{project.title}</h3>
                 </div>
               </div>
             </motion.div>
@@ -93,15 +97,16 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-12 text-center"
+          className="mt-16 text-center"
         >
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium tracking-wide text-primary-foreground bg-foreground hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-3 px-10 py-4 text-sm font-semibold tracking-wider uppercase bg-foreground text-primary-foreground hover:shadow-elevated transition-all duration-300"
           >
             Falar no WhatsApp
+            <span>→</span>
           </a>
         </motion.div>
       </div>

@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
 
@@ -27,41 +27,43 @@ const Testimonials = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="depoimentos" className="section-padding" ref={ref}>
+    <section id="depoimentos" className="dark-section section-padding" ref={ref}>
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-xl mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-2xl mx-auto mb-16"
         >
           <span className="label-caps text-primary mb-4 block">Depoimentos</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight mb-2">
-            A confiança de quem já escolheu
+          <div className="line-accent mx-auto mb-8" />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-3">
+            A confiança de quem <span className="italic text-primary">já escolheu</span>
           </h2>
-          <p className="text-muted-foreground">Mais de 100 clientes atendidos com excelência</p>
+          <p className="text-white/40">Mais de 100 clientes atendidos com excelência</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {testimonials.map((item, i) => (
             <motion.div
               key={item.name}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-secondary p-8 flex flex-col"
+              transition={{ duration: 0.5, delay: i * 0.12 }}
+              className="glass-card p-8 md:p-10 flex flex-col group hover:border-primary/20 transition-all duration-500"
             >
-              <div className="flex gap-1 mb-4">
+              <Quote size={32} className="text-primary/30 mb-6" />
+              <div className="flex gap-1 mb-5">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={14} className="fill-primary text-primary" />
+                  <Star key={j} size={12} className="fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-foreground/80 text-sm leading-relaxed mb-6 flex-1 italic">
+              <p className="text-white/70 text-[15px] leading-relaxed mb-8 flex-1 italic">
                 "{item.text}"
               </p>
-              <div>
-                <p className="font-serif text-base font-medium text-foreground">{item.name}</p>
-                <p className="text-xs text-muted-foreground">{item.role}</p>
+              <div className="pt-6 border-t border-white/10">
+                <p className="font-serif text-lg font-semibold text-white">{item.name}</p>
+                <p className="text-[13px] text-white/40 mt-1">{item.role}</p>
               </div>
             </motion.div>
           ))}
@@ -71,16 +73,17 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-12 text-center"
+          className="mt-16 text-center"
         >
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium tracking-wide transition-opacity hover:opacity-90"
+            className="inline-flex items-center gap-3 px-10 py-4 text-sm font-semibold tracking-wider uppercase transition-all duration-300 hover:shadow-glow hover:scale-[1.02]"
             style={{ backgroundColor: "#25D366", color: "#fff" }}
           >
             Falar no WhatsApp
+            <span>→</span>
           </a>
         </motion.div>
       </div>
