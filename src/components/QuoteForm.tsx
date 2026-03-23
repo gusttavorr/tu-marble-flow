@@ -22,34 +22,49 @@ const QuoteForm = () => {
     window.open(`https://wa.me/5511988124466?text=${text}`, "_blank");
   };
 
+  const inputClass = "w-full bg-transparent border border-white/10 text-white placeholder:text-white/25 px-5 py-4 text-sm focus:outline-none focus:border-primary transition-all duration-300";
+
   return (
-    <section id="orcamento" className="section-padding bg-foreground" ref={ref}>
+    <section id="orcamento" className="dark-section section-padding" ref={ref}>
       <div className="container-narrow">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="label-caps text-primary mb-4 block">Orçamento</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-primary-foreground leading-tight mb-6">
-              Solicite Seu Orçamento Agora
+            <div className="line-accent mb-8" />
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-8">
+              Solicite Seu <span className="italic text-primary">Orçamento</span> Agora
             </h2>
-            <p className="text-primary-foreground/60 leading-relaxed mb-8">
-              Atendimento ágil e sem compromisso. Preencha o formulário e nossa equipe entra em contato pelo WhatsApp para um atendimento consultivo personalizado.
+            <p className="text-white/40 leading-relaxed mb-10 text-base">
+              Atendimento ágil e sem compromisso. Preencha o formulário e nossa equipe entra em contato pelo WhatsApp.
             </p>
-            <div className="flex flex-col gap-2 text-primary-foreground/50 text-sm">
-              <span>✦ Resposta em até 2 horas úteis</span>
-              <span>✦ Orçamento detalhado e transparente</span>
-              <span>✦ Visita técnica sem custo</span>
-              <span>✦ Projetos em 3D antes da execução</span>
+            <div className="flex flex-col gap-4 text-white/30 text-sm">
+              <div className="flex items-center gap-3">
+                <span className="text-primary text-lg">✦</span>
+                <span>Resposta em até 2 horas úteis</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-primary text-lg">✦</span>
+                <span>Orçamento detalhado e transparente</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-primary text-lg">✦</span>
+                <span>Visita técnica sem custo</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="text-primary text-lg">✦</span>
+                <span>Projetos em 3D antes da execução</span>
+              </div>
             </div>
           </motion.div>
 
           <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             onSubmit={handleSubmit}
             className="flex flex-col gap-4"
           >
@@ -59,7 +74,7 @@ const QuoteForm = () => {
               required
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="bg-primary-foreground/10 border border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 px-4 py-3.5 text-sm focus:outline-none focus:border-primary transition-colors"
+              className={inputClass}
             />
             <input
               type="tel"
@@ -67,17 +82,17 @@ const QuoteForm = () => {
               required
               value={form.whatsapp}
               onChange={(e) => setForm({ ...form, whatsapp: e.target.value })}
-              className="bg-primary-foreground/10 border border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 px-4 py-3.5 text-sm focus:outline-none focus:border-primary transition-colors"
+              className={inputClass}
             />
             <select
               required
               value={form.type}
               onChange={(e) => setForm({ ...form, type: e.target.value })}
-              className="bg-primary-foreground/10 border border-primary-foreground/10 text-primary-foreground px-4 py-3.5 text-sm focus:outline-none focus:border-primary transition-colors appearance-none"
+              className={`${inputClass} appearance-none`}
             >
-              <option value="" className="text-foreground">Tipo de projeto</option>
+              <option value="" className="bg-foreground">Tipo de projeto</option>
               {projectTypes.map((t) => (
-                <option key={t} value={t} className="text-foreground">{t}</option>
+                <option key={t} value={t} className="bg-foreground">{t}</option>
               ))}
             </select>
             <textarea
@@ -85,15 +100,16 @@ const QuoteForm = () => {
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="bg-primary-foreground/10 border border-primary-foreground/10 text-primary-foreground placeholder:text-primary-foreground/30 px-4 py-3.5 text-sm focus:outline-none focus:border-primary transition-colors resize-none"
+              className={`${inputClass} resize-none`}
             />
             <button
               type="submit"
-              className="px-8 py-4 text-sm font-medium tracking-wide hover:opacity-90 transition-opacity flex items-center justify-center gap-2 mt-2"
+              className="group px-10 py-5 text-sm font-semibold tracking-wider uppercase hover:shadow-glow hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 mt-2"
               style={{ backgroundColor: "#25D366", color: "#fff" }}
             >
               <Send size={16} />
               Solicitar Orçamento Agora
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </button>
           </motion.form>
         </div>

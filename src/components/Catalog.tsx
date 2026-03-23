@@ -3,16 +3,9 @@ import { useRef, useState, useMemo } from "react";
 import { Search, X, Eye } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { stones } from "@/data/stones";
-type Product = {
-  name: string;
-  image: string;
-};
 
-type Category = {
-  id: string;
-  label: string;
-  products: Product[];
-};
+type Product = { name: string; image: string };
+type Category = { id: string; label: string; products: Product[] };
 
 const BASE_IMG = "http://www.itumarmores.com.br/area_restrita/img_produtos";
 
@@ -118,9 +111,7 @@ const Catalog = () => {
     const source = activeCategory === "todos"
       ? allProducts
       : categories.find((c) => c.id === activeCategory)!.products;
-
     if (!search.trim()) return source;
-
     const query = search.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     return source.filter((p) =>
       p.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(query)
@@ -136,16 +127,11 @@ const Catalog = () => {
   };
 
   const handleProductClick = (productName: string) => {
-    const stoneId = stones.find(
-      (s) => s.name.toLowerCase() === productName.toLowerCase()
-    )?.id;
-    if (stoneId) {
-      navigate(`/pedra/${stoneId}`);
-    } else {
-      handleWhatsApp(productName);
-    }
+    const stoneId = stones.find((s) => s.name.toLowerCase() === productName.toLowerCase())?.id;
+    if (stoneId) navigate(`/pedra/${stoneId}`);
+    else handleWhatsApp(productName);
   };
-  
+
   const getStoneId = (productName: string) =>
     stones.find((s) => s.name.toLowerCase() === productName.toLowerCase())?.id;
 
@@ -157,39 +143,37 @@ const Catalog = () => {
   };
 
   return (
-    <section id="catalogo" className="section-padding bg-secondary" ref={ref}>
+    <section id="catalogo" className="dark-section section-padding" ref={ref}>
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
           <span className="label-caps text-primary mb-4 block">Catálogo</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-medium text-foreground leading-tight mb-4">
-            Nossas Pedras
+          <div className="line-accent mx-auto mb-8" />
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-4">
+            Nossas <span className="italic text-primary">Pedras</span>
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Conheça nossa seleção de granitos e mármores nacionais e importados. Clique em qualquer pedra para solicitar informações.
+          <p className="text-white/40 max-w-xl mx-auto">
+            Conheça nossa seleção de granitos e mármores nacionais e importados.
           </p>
         </motion.div>
 
-        {/* Search Bar */}
+        {/* Search */}
         <div className="max-w-md mx-auto mb-8">
           <div className="relative">
-            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+            <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
             <input
               type="text"
-              placeholder="Pesquisar produto (ex: Branco Polar, Preto Absoluto...)"
+              placeholder="Pesquisar produto..."
               value={search}
               onChange={(e) => { setSearch(e.target.value); setVisibleCount(12); }}
-              className="w-full bg-background border border-border text-foreground placeholder:text-muted-foreground pl-11 pr-10 py-3 text-sm focus:outline-none focus:border-primary transition-colors"
+              className="w-full bg-transparent border border-white/10 text-white placeholder:text-white/25 pl-11 pr-10 py-3.5 text-sm focus:outline-none focus:border-primary transition-all duration-300"
             />
             {search && (
-              <button
-                onClick={() => setSearch("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-              >
+              <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white">
                 <X size={16} />
               </button>
             )}
@@ -200,38 +184,36 @@ const Catalog = () => {
         <div className="flex justify-center gap-2 mb-10 flex-wrap">
           <button
             onClick={() => handleCategoryChange("todos")}
-            className={`px-6 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 ${
+            className={`px-5 py-2.5 text-[13px] font-medium tracking-wide transition-all duration-300 ${
               activeCategory === "todos"
-                ? "bg-foreground text-primary-foreground"
-                : "bg-background text-muted-foreground hover:text-foreground border border-border"
+                ? "bg-primary text-primary-foreground"
+                : "border border-white/10 text-white/40 hover:text-white hover:border-white/20"
             }`}
           >
-            Todos
-            <span className="ml-2 text-xs opacity-60">({allProducts.length})</span>
+            Todos <span className="ml-1 text-[11px] opacity-50">({allProducts.length})</span>
           </button>
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => handleCategoryChange(cat.id)}
-              className={`px-6 py-2.5 text-sm font-medium tracking-wide transition-all duration-200 ${
+              className={`px-5 py-2.5 text-[13px] font-medium tracking-wide transition-all duration-300 ${
                 activeCategory === cat.id
-                  ? "bg-foreground text-primary-foreground"
-                  : "bg-background text-muted-foreground hover:text-foreground border border-border"
+                  ? "bg-primary text-primary-foreground"
+                  : "border border-white/10 text-white/40 hover:text-white hover:border-white/20"
               }`}
             >
-              {cat.label}
-              <span className="ml-2 text-xs opacity-60">({cat.products.length})</span>
+              {cat.label} <span className="ml-1 text-[11px] opacity-50">({cat.products.length})</span>
             </button>
           ))}
         </div>
 
-        {/* Product Grid */}
+        {/* Grid */}
         <motion.div
           key={activeCategory + search}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3"
         >
           {visibleProducts.map((product, index) => {
             const hasDetailPage = !!getStoneId(product.name);
@@ -240,15 +222,11 @@ const Catalog = () => {
                 key={product.name}
                 initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: 0.4,
-                  delay: Math.min(index * 0.03, 0.3),
-                  ease: [0.22, 1, 0.36, 1],
-                }}
+                transition={{ duration: 0.4, delay: Math.min(index * 0.03, 0.3) }}
                 onClick={() => handleProductClick(product.name)}
                 className="group text-left"
               >
-                <div className="aspect-square overflow-hidden bg-muted mb-2 border border-border relative">
+                <div className="aspect-square overflow-hidden mb-2 border border-white/5 relative">
                   <img
                     src={product.image}
                     alt={`${product.name} - Itu Mármores`}
@@ -256,35 +234,33 @@ const Catalog = () => {
                     loading="lazy"
                   />
                   {hasDetailPage && (
-                    <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-center justify-center">
-                      <Eye size={24} className="text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                      <Eye size={22} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                   )}
                 </div>
-                <span className="text-xs font-medium text-foreground group-hover:text-primary transition-colors leading-tight block">
+                <span className="text-[13px] font-medium text-white/70 group-hover:text-primary transition-colors leading-tight block">
                   {product.name}
                 </span>
                 {hasDetailPage && (
-                  <span className="text-[10px] text-primary">Ver projeto 3D →</span>
+                  <span className="text-[10px] text-primary/60 group-hover:text-primary transition-colors">Ver projeto 3D →</span>
                 )}
               </motion.button>
             );
           })}
         </motion.div>
 
-        {/* No results */}
         {filteredProducts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">Nenhum produto encontrado para "{search}"</p>
+            <p className="text-white/30">Nenhum produto encontrado para "{search}"</p>
           </div>
         )}
 
-        {/* Load More */}
         {hasMore && (
-          <div className="text-center mt-8">
+          <div className="text-center mt-10">
             <button
               onClick={() => setVisibleCount((prev) => prev + 12)}
-              className="bg-foreground text-primary-foreground px-8 py-3 text-sm font-medium tracking-wide hover:opacity-90 transition-opacity"
+              className="bg-primary text-primary-foreground px-8 py-3.5 text-[13px] font-semibold tracking-wide hover:shadow-glow transition-all duration-300"
             >
               Ver mais pedras ({filteredProducts.length - visibleCount} restantes)
             </button>
