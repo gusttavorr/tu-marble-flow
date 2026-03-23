@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -19,18 +19,18 @@ const navLinks: { label: string; href: string; isRoute?: boolean }[] = [
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá! Gostaria de solicitar um orçamento.";
 
 const NavItem = ({ link, onClick }: { link: typeof navLinks[0]; onClick?: () => void }) => {
-  const className = "text-sm text-primary-foreground hover:text-primary transition-colors duration-200";
-  const mobileClassName = "text-sm text-muted-foreground hover:text-foreground py-2";
+  const desktopClass = "text-[13px] font-medium text-white/80 hover:text-white transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full";
+  const mobileClass = "text-base text-foreground/70 hover:text-foreground py-3 border-b border-border/50 transition-colors";
 
   if (link.isRoute) {
     return (
-      <Link to={link.href} onClick={onClick} className={onClick ? mobileClassName : className}>
+      <Link to={link.href} onClick={onClick} className={onClick ? mobileClass : desktopClass}>
         {link.label}
       </Link>
     );
   }
   return (
-    <a href={link.href} onClick={onClick} className={onClick ? mobileClassName : className}>
+    <a href={link.href} onClick={onClick} className={onClick ? mobileClass : desktopClass}>
       {link.label}
     </a>
   );
@@ -38,16 +38,29 @@ const NavItem = ({ link, onClick }: { link: typeof navLinks[0]; onClick?: () => 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
-      <div className="container-narrow flex items-center justify-between h-20 md:h-24 px-5 md:px-8 lg:px-16">
-        <a href="#inicio">
-          <img src={logoItu} alt="Itu Mármores e Granitos - Desde 1968" className="h-16 md:h-20 w-auto" />
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-foreground/90 backdrop-blur-xl shadow-elevated"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container-narrow flex items-center justify-between h-20 md:h-24 px-6 md:px-10 lg:px-20">
+        <a href="#inicio" className="relative z-10">
+          <img src={logoItu} alt="Itu Mármores e Granitos - Desde 1968" className="h-14 md:h-16 w-auto" />
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden xl:flex items-center gap-7">
           {navLinks.map((link) => (
             <NavItem key={link.href} link={link} />
           ))}
@@ -55,16 +68,16 @@ const Header = () => {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-foreground text-primary px-5 py-2.5 text-sm font-medium transition-opacity hover:opacity-90"
+            className="ml-4 bg-primary text-primary-foreground px-6 py-2.5 text-[13px] font-semibold tracking-wide hover:shadow-glow transition-all duration-300"
           >
-            Solicitar Orçamento
+            Orçamento
           </a>
         </nav>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2 text-primary-foreground"
+          className="xl:hidden p-2 text-white"
           aria-label="Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -78,9 +91,9 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-b border-border overflow-hidden"
+            className="xl:hidden bg-background/98 backdrop-blur-xl border-b border-border overflow-hidden"
           >
-            <div className="px-5 py-4 flex flex-col gap-3">
+            <div className="px-6 py-6 flex flex-col">
               {navLinks.map((link) => (
                 <NavItem key={link.href} link={link} onClick={() => setIsOpen(false)} />
               ))}
@@ -88,7 +101,7 @@ const Header = () => {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-foreground text-primary px-5 py-3 text-sm font-medium text-center mt-2"
+                className="bg-primary text-primary-foreground px-6 py-4 text-sm font-semibold text-center mt-4 tracking-wide"
               >
                 Solicitar Orçamento
               </a>
