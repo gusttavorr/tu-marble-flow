@@ -8,6 +8,7 @@ const navLinks: { label: string; href: string; isRoute?: boolean }[] = [
   { label: "Início", href: "#inicio" },
   { label: "Sobre", href: "#sobre" },
   { label: "Quem Somos", href: "/sobre-nos", isRoute: true },
+  { label: "Showroom", href: "/showroom", isRoute: true },
   { label: "Serviços", href: "#servicos" },
   { label: "Catálogo", href: "#catalogo" },
   { label: "Portfólio", href: "#portfolio" },
