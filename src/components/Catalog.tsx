@@ -104,6 +104,7 @@ const WHATSAPP_URL = "https://wa.me/5511988124466?text=";
 const Catalog = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("todos");
   const [visibleCount, setVisibleCount] = useState(12);
   const [search, setSearch] = useState("");
