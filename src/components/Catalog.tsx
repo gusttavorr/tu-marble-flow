@@ -270,7 +270,6 @@ const Catalog = () => {
               </motion.button>
             );
           })}
-          ))}
         </motion.div>
 
         {/* No results */}
