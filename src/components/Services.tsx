@@ -18,7 +18,7 @@ const services = [
 
 const Services = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section id="servicos" className="dark-section section-padding" ref={ref}>
@@ -27,32 +27,32 @@ const Services = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-10 sm:mb-16"
         >
-          <span className="label-caps text-primary mb-4 block">O Que Fazemos</span>
-          <div className="line-accent mx-auto mb-8" />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-4">
+          <span className="label-caps text-primary mb-3 sm:mb-4 block">O Que Fazemos</span>
+          <div className="line-accent mx-auto mb-6 sm:mb-8" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-3 sm:mb-4">
             Soluções Sob Medida para{" "}
             <span className="italic text-primary">Valorizar</span> Seu Espaço
           </h2>
-          <p className="text-white/50">
+          <p className="text-white/50 text-sm sm:text-base">
             Mais de 100 clientes atendidos com excelência. Cada projeto é único.
           </p>
         </motion.div>
 
         {/* Bento-style grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`group relative overflow-hidden cursor-pointer ${
-                i === 0 ? "lg:col-span-2 lg:row-span-2" : ""
+              className={`group relative overflow-hidden rounded-xl cursor-pointer ${
+                i === 0 ? "sm:col-span-2 sm:row-span-2" : ""
               }`}
             >
-              <div className={`overflow-hidden ${i === 0 ? "aspect-[4/3] lg:aspect-auto lg:h-full" : "aspect-[4/3]"}`}>
+              <div className={`overflow-hidden ${i === 0 ? "aspect-[4/3] sm:aspect-auto sm:h-full min-h-[250px]" : "aspect-[4/3]"}`}>
                 <img
                   src={service.img}
                   alt={service.alt}
@@ -60,11 +60,11 @@ const Services = () => {
                   loading="lazy"
                 />
               </div>
-              {/* Overlay */}
+              {/* Overlay - always visible on mobile */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end">
-                <div className="p-6 md:p-8 w-full">
-                  <span className="label-caps text-primary block mb-2">{service.title}</span>
-                  <p className="text-white/60 text-sm leading-relaxed max-w-md opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                <div className="p-4 sm:p-6 md:p-8 w-full">
+                  <span className="label-caps text-primary block mb-1 sm:mb-2">{service.title}</span>
+                  <p className="text-white/70 sm:text-white/60 text-xs sm:text-sm leading-relaxed max-w-md sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-500 sm:translate-y-2 sm:group-hover:translate-y-0">
                     {service.desc}
                   </p>
                 </div>
@@ -77,13 +77,13 @@ const Services = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-12 text-center"
+          className="mt-8 sm:mt-12 text-center"
         >
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-10 py-4 text-sm font-semibold tracking-wider uppercase text-white bg-primary hover:shadow-glow transition-all duration-300"
+            className="cta-primary bg-primary text-primary-foreground rounded-xl"
           >
             Quero Meu Projeto Sob Medida
             <span>→</span>

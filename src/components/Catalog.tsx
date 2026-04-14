@@ -96,7 +96,7 @@ const WHATSAPP_URL = "https://wa.me/5511988124466?text=";
 
 const Catalog = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("todos");
   const [visibleCount, setVisibleCount] = useState(12);
@@ -149,20 +149,20 @@ const Catalog = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <span className="label-caps text-primary mb-4 block">Catálogo</span>
-          <div className="line-accent mx-auto mb-8" />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-4">
+          <span className="label-caps text-primary mb-3 sm:mb-4 block">Catálogo</span>
+          <div className="line-accent mx-auto mb-6 sm:mb-8" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-3 sm:mb-4">
             Nossas <span className="italic text-primary">Pedras</span>
           </h2>
-          <p className="text-white/40 max-w-xl mx-auto">
+          <p className="text-white/40 max-w-xl mx-auto text-sm sm:text-base">
             Conheça nossa seleção de granitos e mármores nacionais e importados.
           </p>
         </motion.div>
 
         {/* Search */}
-        <div className="max-w-md mx-auto mb-8">
+        <div className="max-w-md mx-auto mb-6 sm:mb-8">
           <div className="relative">
             <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
             <input
@@ -170,21 +170,21 @@ const Catalog = () => {
               placeholder="Pesquisar produto..."
               value={search}
               onChange={(e) => { setSearch(e.target.value); setVisibleCount(12); }}
-              className="w-full bg-transparent border border-white/10 text-white placeholder:text-white/25 pl-11 pr-10 py-3.5 text-sm focus:outline-none focus:border-primary transition-all duration-300"
+              className="w-full bg-transparent border border-white/10 text-white placeholder:text-white/25 pl-11 pr-10 py-3 sm:py-3.5 text-sm rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-300"
             />
             {search && (
-              <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white">
+              <button onClick={() => setSearch("")} className="absolute right-3 top-1/2 -translate-y-1/2 text-white/30 hover:text-white p-1">
                 <X size={16} />
               </button>
             )}
           </div>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex justify-center gap-2 mb-10 flex-wrap">
+        {/* Category Tabs - horizontal scroll on mobile */}
+        <div className="flex gap-2 mb-8 sm:mb-10 overflow-x-auto pb-2 sm:pb-0 sm:flex-wrap sm:justify-center scrollbar-hide -mx-5 px-5 sm:mx-0 sm:px-0">
           <button
             onClick={() => handleCategoryChange("todos")}
-            className={`px-5 py-2.5 text-[13px] font-medium tracking-wide transition-all duration-300 ${
+            className={`px-4 sm:px-5 py-2.5 text-xs sm:text-[13px] font-medium tracking-wide rounded-lg transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
               activeCategory === "todos"
                 ? "bg-primary text-primary-foreground"
                 : "border border-white/10 text-white/40 hover:text-white hover:border-white/20"
@@ -196,7 +196,7 @@ const Catalog = () => {
             <button
               key={cat.id}
               onClick={() => handleCategoryChange(cat.id)}
-              className={`px-5 py-2.5 text-[13px] font-medium tracking-wide transition-all duration-300 ${
+              className={`px-4 sm:px-5 py-2.5 text-xs sm:text-[13px] font-medium tracking-wide rounded-lg transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
                 activeCategory === cat.id
                   ? "bg-primary text-primary-foreground"
                   : "border border-white/10 text-white/40 hover:text-white hover:border-white/20"
@@ -213,7 +213,7 @@ const Catalog = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3"
         >
           {visibleProducts.map((product, index) => {
             const hasDetailPage = !!getStoneId(product.name);
@@ -226,7 +226,7 @@ const Catalog = () => {
                 onClick={() => handleProductClick(product.name)}
                 className="group text-left"
               >
-                <div className="aspect-square overflow-hidden mb-2 border border-white/5 relative">
+                <div className="aspect-square overflow-hidden mb-1.5 sm:mb-2 border border-white/5 rounded-lg relative">
                   <img
                     src={product.image}
                     alt={`${product.name} - Itu Mármores`}
@@ -234,16 +234,16 @@ const Catalog = () => {
                     loading="lazy"
                   />
                   {hasDetailPage && (
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center rounded-lg">
                       <Eye size={22} className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                   )}
                 </div>
-                <span className="text-[13px] font-medium text-white/70 group-hover:text-primary transition-colors leading-tight block">
+                <span className="text-[11px] sm:text-[13px] font-medium text-white/70 group-hover:text-primary transition-colors leading-tight block">
                   {product.name}
                 </span>
                 {hasDetailPage && (
-                  <span className="text-[10px] text-primary/60 group-hover:text-primary transition-colors">Ver projeto 3D →</span>
+                  <span className="text-[9px] sm:text-[10px] text-primary/60 group-hover:text-primary transition-colors">Ver projeto 3D →</span>
                 )}
               </motion.button>
             );
@@ -252,15 +252,15 @@ const Catalog = () => {
 
         {filteredProducts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-white/30">Nenhum produto encontrado para "{search}"</p>
+            <p className="text-white/30 text-sm">Nenhum produto encontrado para "{search}"</p>
           </div>
         )}
 
         {hasMore && (
-          <div className="text-center mt-10">
+          <div className="text-center mt-8 sm:mt-10">
             <button
               onClick={() => setVisibleCount((prev) => prev + 12)}
-              className="bg-primary text-primary-foreground px-8 py-3.5 text-[13px] font-semibold tracking-wide hover:shadow-glow transition-all duration-300"
+              className="bg-primary text-primary-foreground px-6 sm:px-8 py-3 sm:py-3.5 text-xs sm:text-[13px] font-semibold tracking-wide rounded-lg hover:shadow-glow transition-all duration-300"
             >
               Ver mais pedras ({filteredProducts.length - visibleCount} restantes)
             </button>
