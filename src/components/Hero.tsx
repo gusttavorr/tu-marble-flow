@@ -6,7 +6,7 @@ const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gos
 
 const Hero = () => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="inicio" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
         <img
@@ -19,13 +19,13 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 section-padding w-full">
+      <div className="relative z-10 section-padding w-full pt-24 sm:pt-28">
         <div className="container-narrow flex flex-col items-center text-center">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="label-caps text-primary mb-6 block"
+            className="label-caps text-primary mb-4 sm:mb-6 block"
           >
             ✦ Tradição desde 1968 ✦
           </motion.span>
@@ -34,7 +34,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-white leading-[1.05] mb-8 max-w-5xl"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-serif font-bold text-white leading-[1.1] mb-6 sm:mb-8 max-w-5xl"
           >
             Transforme Seu Ambiente com{" "}
             <span className="text-gradient-gold italic">Mármore & Granito</span>{" "}
@@ -45,7 +45,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-white/60 text-base md:text-lg leading-relaxed mb-12 max-w-2xl font-sans"
+            className="text-white/60 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-12 max-w-2xl font-sans px-2"
           >
             Qualidade, acabamento impecável e entrega no prazo. 
             Solicite seu orçamento rápido pelo WhatsApp — atendimento ágil e sem compromisso.
@@ -55,13 +55,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-2 sm:px-0"
           >
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 px-10 py-5 text-sm font-semibold tracking-wider uppercase transition-all duration-300 hover:shadow-glow hover:scale-[1.02]"
+              className="cta-primary rounded-xl w-full sm:w-auto"
               style={{ backgroundColor: "#25D366", color: "#fff" }}
             >
               <span>Solicitar Orçamento</span>
@@ -69,7 +69,7 @@ const Hero = () => {
             </a>
             <a
               href="#portfolio"
-              className="inline-flex items-center justify-center gap-2 px-10 py-5 text-sm font-semibold tracking-wider uppercase text-white border border-white/20 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+              className="cta-outline border-white/20 text-white hover:border-white/40 hover:bg-white/5 rounded-xl w-full sm:w-auto"
             >
               Ver Projetos
             </a>
@@ -82,9 +82,9 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-sans">Scroll</span>
+        <span className="text-white/40 text-[10px] tracking-[0.3em] uppercase font-sans hidden sm:block">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}

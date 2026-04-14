@@ -8,10 +8,10 @@ const WhatsAppButton = () => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Fale conosco pelo WhatsApp"
-    className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-elevated transition-all duration-300 hover:scale-110 hover:shadow-glow animate-[pulse_2.5s_ease-in-out_infinite]"
+    className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-elevated transition-all duration-300 hover:scale-110 hover:shadow-glow animate-[pulse_2.5s_ease-in-out_infinite] active:scale-95"
     style={{ backgroundColor: "#25D366" }}
   >
-    <MessageCircle size={28} className="text-white" fill="currentColor" />
+    <MessageCircle size={24} className="sm:w-7 sm:h-7 text-white" fill="currentColor" />
   </a>
 );
 

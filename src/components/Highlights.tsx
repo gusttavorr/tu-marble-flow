@@ -33,7 +33,7 @@ const highlights = [
 
 const Highlights = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section className="section-padding" ref={ref}>
@@ -42,39 +42,37 @@ const Highlights = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <span className="label-caps text-primary mb-4 block">Diferenciais</span>
-          <div className="line-accent mx-auto mb-8" />
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight max-w-3xl mx-auto">
+          <span className="label-caps text-primary mb-3 sm:mb-4 block">Diferenciais</span>
+          <div className="line-accent mx-auto mb-6 sm:mb-8" />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight max-w-3xl mx-auto">
             Por que escolher a <span className="italic text-primary">Itu Mármores</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {highlights.map((item, i) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`group p-8 md:p-10 border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-elevated ${
+              className={`group p-6 sm:p-8 md:p-10 border border-border rounded-xl hover:border-primary/30 transition-all duration-500 hover:shadow-elevated ${
                 i === 1 ? "bg-foreground text-white border-transparent hover:border-primary/30" : ""
               }`}
             >
               <item.icon
-                className={`mb-6 transition-transform duration-300 group-hover:scale-110 ${
-                  i === 1 ? "text-primary" : "text-primary"
-                }`}
-                size={36}
+                className="mb-4 sm:mb-6 transition-transform duration-300 group-hover:scale-110 text-primary"
+                size={32}
                 strokeWidth={1}
               />
-              <h3 className={`text-xl md:text-2xl font-serif font-semibold mb-4 ${
+              <h3 className={`text-lg sm:text-xl md:text-2xl font-serif font-semibold mb-3 sm:mb-4 ${
                 i === 1 ? "text-white" : "text-foreground"
               }`}>
                 {item.title}
               </h3>
-              <p className={`leading-relaxed mb-6 ${
+              <p className={`leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base ${
                 i === 1 ? "text-white/50" : "text-muted-foreground"
               }`}>
                 {item.desc}

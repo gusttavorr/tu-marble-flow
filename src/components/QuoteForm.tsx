@@ -13,7 +13,7 @@ const projectTypes = [
 
 const QuoteForm = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [form, setForm] = useState({ name: "", whatsapp: "", type: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -22,42 +22,37 @@ const QuoteForm = () => {
     window.open(`https://wa.me/5511988124466?text=${text}`, "_blank");
   };
 
-  const inputClass = "w-full bg-transparent border border-white/10 text-white placeholder:text-white/25 px-5 py-4 text-sm focus:outline-none focus:border-primary transition-all duration-300";
+  const inputClass = "w-full bg-transparent border border-white/10 text-white placeholder:text-white/25 px-4 sm:px-5 py-3.5 sm:py-4 text-sm rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-all duration-300";
 
   return (
     <section id="orcamento" className="dark-section section-padding" ref={ref}>
       <div className="container-narrow">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-24">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="label-caps text-primary mb-4 block">Orçamento</span>
-            <div className="line-accent mb-8" />
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-8">
+            <span className="label-caps text-primary mb-3 sm:mb-4 block">Orçamento</span>
+            <div className="line-accent mb-6 sm:mb-8" />
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-6 sm:mb-8">
               Solicite Seu <span className="italic text-primary">Orçamento</span> Agora
             </h2>
-            <p className="text-white/40 leading-relaxed mb-10 text-base">
+            <p className="text-white/40 leading-relaxed mb-6 sm:mb-10 text-sm sm:text-base">
               Atendimento ágil e sem compromisso. Preencha o formulário e nossa equipe entra em contato pelo WhatsApp.
             </p>
-            <div className="flex flex-col gap-4 text-white/30 text-sm">
-              <div className="flex items-center gap-3">
-                <span className="text-primary text-lg">✦</span>
-                <span>Resposta em até 2 horas úteis</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-primary text-lg">✦</span>
-                <span>Orçamento detalhado e transparente</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-primary text-lg">✦</span>
-                <span>Visita técnica sem custo</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="text-primary text-lg">✦</span>
-                <span>Projetos em 3D antes da execução</span>
-              </div>
+            <div className="flex flex-col gap-3 sm:gap-4 text-white/30 text-sm">
+              {[
+                "Resposta em até 2 horas úteis",
+                "Orçamento detalhado e transparente",
+                "Visita técnica sem custo",
+                "Projetos em 3D antes da execução",
+              ].map((text) => (
+                <div key={text} className="flex items-center gap-3">
+                  <span className="text-primary text-lg">✦</span>
+                  <span>{text}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -66,7 +61,7 @@ const QuoteForm = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             onSubmit={handleSubmit}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-3 sm:gap-4"
           >
             <input
               type="text"
@@ -104,7 +99,7 @@ const QuoteForm = () => {
             />
             <button
               type="submit"
-              className="group px-10 py-5 text-sm font-semibold tracking-wider uppercase hover:shadow-glow hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-3 mt-2"
+              className="cta-primary rounded-xl mt-1 sm:mt-2"
               style={{ backgroundColor: "#25D366", color: "#fff" }}
             >
               <Send size={16} />

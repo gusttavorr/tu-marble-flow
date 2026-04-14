@@ -34,7 +34,7 @@
     --input: 30 12% 88%;
     --ring: 35 50% 48%;
 
-    --radius: 2px;
+    --radius: 8px;
 
     /* Dark section tokens */
     --dark-bg: 25 20% 8%;
@@ -59,11 +59,13 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
@@ -71,16 +73,23 @@
     background: hsl(35 50% 48% / 0.2);
     color: hsl(25 20% 10%);
   }
+
+  /* Better tap targets on mobile */
+  @media (max-width: 768px) {
+    button, a, input, select, textarea {
+      min-height: 44px;
+    }
+  }
 }
 
 @layer components {
   .label-caps {
-    @apply text-[11px] font-semibold tracking-[0.2em] uppercase;
+    @apply text-[11px] md:text-xs font-semibold tracking-[0.15em] uppercase;
     font-family: var(--font-sans);
   }
 
   .section-padding {
-    @apply px-6 py-24 md:px-10 lg:px-20 lg:py-32;
+    @apply px-5 py-16 sm:px-6 sm:py-20 md:px-10 md:py-24 lg:px-20 lg:py-32;
   }
 
   .container-narrow {
@@ -100,25 +109,35 @@
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.06);
+    @apply rounded-xl;
   }
 
   .line-accent {
-    @apply w-12 h-[2px] bg-primary;
+    @apply w-12 h-[2px] bg-primary rounded-full;
   }
 
   .stat-number {
     font-family: var(--font-serif);
-    @apply text-5xl md:text-6xl lg:text-7xl font-bold;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold;
     background: linear-gradient(135deg, hsl(35 50% 48%), hsl(35 60% 60%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* Consistent CTA button styles */
+  .cta-primary {
+    @apply inline-flex items-center justify-center gap-3 px-8 py-4 sm:px-10 sm:py-5 text-sm font-semibold tracking-wider uppercase rounded-lg transition-all duration-300 hover:shadow-glow hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .cta-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 sm:px-10 sm:py-5 text-sm font-semibold tracking-wider uppercase rounded-lg border transition-all duration-300 active:scale-[0.98];
+  }
 }
 
 @layer utilities {
   .hover-scale {
-    @apply transition-transform duration-300 hover:scale-[1.02];
+    @apply transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98];
   }
 
   .text-gradient-gold {
@@ -142,4 +161,15 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better image rendering */
+img {
+  max-width: 100%;
+  height: auto;
 }
