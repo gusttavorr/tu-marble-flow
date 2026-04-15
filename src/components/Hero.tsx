@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import heroVideoTour1 from "@/assets/hero-video-tour-1.mp4.asset.json";
 import heroVideoTour2 from "@/assets/hero-video-tour-2.mp4.asset.json";
 import heroVideo1 from "@/assets/hero-video.mp4.asset.json";
 import heroVideo2 from "@/assets/hero-video-2.mp4.asset.json";
@@ -9,12 +8,10 @@ import heroVideo3 from "@/assets/hero-video-3.mp4.asset.json";
 import heroVideo4 from "@/assets/hero-video-4.mp4.asset.json";
 import heroVideo5 from "@/assets/hero-video-5.mp4.asset.json";
 import heroVideo6 from "@/assets/hero-video-6.mp4.asset.json";
-import heroVideo7 from "@/assets/hero-video-7.mp4.asset.json";
 
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
 
 const videos = [
-  heroVideoTour1.url,
   heroVideoTour2.url,
   heroVideo1.url,
   heroVideo2.url,
@@ -22,7 +19,6 @@ const videos = [
   heroVideo4.url,
   heroVideo5.url,
   heroVideo6.url,
-  heroVideo7.url,
 ];
 
 const Hero = () => {
