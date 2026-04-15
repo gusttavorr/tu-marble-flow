@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
+import heroVideo from "@/assets/hero-video.mp4.asset.json";
 import heroImg from "@/assets/hero-kitchen.jpg";
 
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
@@ -7,13 +8,16 @@ const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gos
 const Hero = () => {
   return (
     <section id="inicio" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Background */}
+      {/* Video Background */}
       <div className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Bancada de cozinha em mármore branco Calacatta executada pela Itu Mármores"
+        <video
+          src={heroVideo.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImg}
           className="w-full h-full object-cover scale-105"
-          loading="eager"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       </div>
