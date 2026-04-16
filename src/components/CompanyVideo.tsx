@@ -1,6 +1,5 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Play } from "lucide-react";
 
 const CompanyVideo = () => {
   const ref = useRef(null);
@@ -32,15 +31,17 @@ const CompanyVideo = () => {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="relative aspect-video rounded-2xl overflow-hidden bg-muted/30 border border-border/50"
         >
-          {/* Placeholder — replace with real video */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
-              <Play className="w-6 h-6 sm:w-8 sm:h-8 text-primary ml-1" />
-            </div>
-            <p className="text-muted-foreground text-sm sm:text-base font-medium">
-              Vídeo em breve
-            </p>
-          </div>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/C28k2eGgTAQ?si=dnUFKT7Joh5jRWdD"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
         </motion.div>
       </div>
     </section>

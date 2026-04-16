@@ -6,10 +6,16 @@ import realBathroom3 from "@/assets/real-bathroom-3.jpg";
 import realSink1 from "@/assets/real-sink-1.jpg";
 import realSink3 from "@/assets/real-sink-3.jpg";
 import realShowroom1 from "@/assets/real-showroom-1.jpg";
+import pool1 from "@/assets/pool-1.jpg";
+import pool2 from "@/assets/pool-2.jpg";
+import pool3 from "@/assets/pool-3.jpg";
+import pool4 from "@/assets/pool-4.jpg";
+import pool5 from "@/assets/pool-5.jpg";
+import pool6 from "@/assets/pool-6.jpg";
 
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
 
-const categories = ["Todos", "Cozinhas", "Banheiros", "Áreas Externas"] as const;
+const categories = ["Todos", "Cozinhas", "Banheiros", "Piscinas", "Áreas Externas"] as const;
 
 const projects = [
   { img: realBathroom1, title: "Banheiro em Mármore Calacatta", material: "Mármore Calacatta", category: "Banheiros", alt: "Banheiro de luxo com mármore Calacatta e vista panorâmica", large: true },
@@ -18,6 +24,12 @@ const projects = [
   { img: realBathroom3, title: "Banheiro Completo Alto Padrão", material: "Mármore Branco Venatino", category: "Banheiros", alt: "Banheiro completo revestido em mármore branco com bancada em madeira", large: true },
   { img: realBathroom2, title: "Spa Residencial Panorâmico", material: "Mármore Statuário", category: "Banheiros", alt: "Spa residencial com paredes e piso em mármore e chuveiro de teto" },
   { img: realSink3, title: "Bancada Dupla Artesanal", material: "Pedra Natural Esculpida", category: "Banheiros", alt: "Bancada dupla em pedra natural com torneiras pretas modernas" },
+  { img: pool1, title: "Piscina com Deck em Madeira", material: "Pedra Natural", category: "Piscinas", alt: "Piscina com revestimento em pedra e deck de madeira", large: true },
+  { img: pool2, title: "Área de Lazer com Piscina", material: "Pedra Hijau", category: "Piscinas", alt: "Área de lazer com piscina revestida em pedra e mobiliário em madeira" },
+  { img: pool3, title: "Piscina Borda Infinita Beira-Mar", material: "Pedra São Tomé", category: "Piscinas", alt: "Piscina com borda infinita e vista para o mar", large: true },
+  { img: pool4, title: "Piscina Panorâmica Frente ao Mar", material: "Pedra Miracema", category: "Piscinas", alt: "Piscina panorâmica com revestimento em pedra e vista para o oceano" },
+  { img: pool5, title: "Detalhe Revestimento em Pedra", material: "Pedra Hijau Polida", category: "Piscinas", alt: "Close do revestimento em pedra verde da piscina" },
+  { img: pool6, title: "Piscina Residencial Clássica", material: "Pedra Natural Escura", category: "Piscinas", alt: "Piscina residencial com formato orgânico e revestimento em pedra escura", large: true },
 ];
 
 const Portfolio = () => {
