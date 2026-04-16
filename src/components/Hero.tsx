@@ -1,22 +1,14 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import heroVideoTour2 from "@/assets/hero-video-tour-2.mp4.asset.json";
-import heroVideo1 from "@/assets/hero-video.mp4.asset.json";
 import heroVideo2 from "@/assets/hero-video-2.mp4.asset.json";
-import heroVideo3 from "@/assets/hero-video-3.mp4.asset.json";
-import heroVideo4 from "@/assets/hero-video-4.mp4.asset.json";
 import heroVideo5 from "@/assets/hero-video-5.mp4.asset.json";
 import heroVideo6 from "@/assets/hero-video-6.mp4.asset.json";
 
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
 
 const videos = [
-  heroVideoTour2.url,
-  heroVideo1.url,
   heroVideo2.url,
-  heroVideo3.url,
-  heroVideo4.url,
   heroVideo5.url,
   heroVideo6.url,
 ];
@@ -36,7 +28,6 @@ const Hero = () => {
 
   return (
     <section id="inicio" className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
-      {/* Video Carousel Background — no poster, only videos */}
       <div className="absolute inset-0 bg-black">
         <AnimatePresence mode="sync">
           <motion.div
@@ -60,7 +51,6 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       </div>
 
-      {/* Video progress indicators */}
       <div className="absolute bottom-20 sm:bottom-24 left-1/2 -translate-x-1/2 z-20 flex gap-1.5 sm:gap-2">
         {videos.map((_, i) => (
           <button
@@ -86,7 +76,6 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Content */}
       <div className="relative z-10 section-padding w-full pt-24 sm:pt-28">
         <div className="container-narrow flex flex-col items-center text-center">
           <motion.span
@@ -145,7 +134,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

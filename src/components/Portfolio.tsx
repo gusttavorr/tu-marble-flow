@@ -1,23 +1,23 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import heroImg from "@/assets/hero-kitchen.jpg";
-import kitchenImg from "@/assets/portfolio-kitchen-1.jpg";
-import bathroomImg from "@/assets/portfolio-bathroom-1.jpg";
-import exteriorImg from "@/assets/portfolio-exterior-1.jpg";
-import claddingImg from "@/assets/service-cladding.jpg";
-import stairsImg from "@/assets/service-stairs.jpg";
+import realBathroom1 from "@/assets/real-bathroom-1.jpg";
+import realBathroom2 from "@/assets/real-bathroom-2.jpg";
+import realBathroom3 from "@/assets/real-bathroom-3.jpg";
+import realSink1 from "@/assets/real-sink-1.jpg";
+import realSink3 from "@/assets/real-sink-3.jpg";
+import realShowroom1 from "@/assets/real-showroom-1.jpg";
 
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
 
 const categories = ["Todos", "Cozinhas", "Banheiros", "Áreas Externas"] as const;
 
 const projects = [
-  { img: heroImg, title: "Ilha em Calacatta Gold", material: "Mármore Calacatta", category: "Cozinhas", alt: "Ilha de cozinha em mármore Calacatta Gold executada pela Itu Mármores", large: true },
-  { img: bathroomImg, title: "Spa Residencial", material: "Mármore Branco Paraná", category: "Banheiros", alt: "Banheiro completo em mármore branco com detalhes dourados" },
-  { img: kitchenImg, title: "Cozinha Via Láctea", material: "Granito Via Láctea Escovado", category: "Cozinhas", alt: "Cozinha com bancada em granito preto Via Láctea" },
-  { img: exteriorImg, title: "Terraço Contemporâneo", material: "Quartzito Natural", category: "Áreas Externas", alt: "Terraço com piso em pedra natural", large: true },
-  { img: claddingImg, title: "Painel Escultural", material: "Mármore Statuário", category: "Cozinhas", alt: "Parede em mármore Statuário em living de alto padrão" },
-  { img: stairsImg, title: "Escadaria Clássica", material: "Mármore Branco Clássico", category: "Banheiros", alt: "Escadaria monumental em mármore branco" },
+  { img: realBathroom1, title: "Banheiro em Mármore Calacatta", material: "Mármore Calacatta", category: "Banheiros", alt: "Banheiro de luxo com mármore Calacatta e vista panorâmica", large: true },
+  { img: realSink1, title: "Cuba Esculpida em Pedra Natural", material: "Pedra Natural Bruta", category: "Banheiros", alt: "Cuba esculpida em pedra natural com borda bruta artesanal" },
+  { img: realShowroom1, title: "Balcão Comercial Premium", material: "Granito Cinza Polido", category: "Cozinhas", alt: "Balcão comercial com acabamento em granito cinza polido" },
+  { img: realBathroom3, title: "Banheiro Completo Alto Padrão", material: "Mármore Branco Venatino", category: "Banheiros", alt: "Banheiro completo revestido em mármore branco com bancada em madeira", large: true },
+  { img: realBathroom2, title: "Spa Residencial Panorâmico", material: "Mármore Statuário", category: "Banheiros", alt: "Spa residencial com paredes e piso em mármore e chuveiro de teto" },
+  { img: realSink3, title: "Bancada Dupla Artesanal", material: "Pedra Natural Esculpida", category: "Banheiros", alt: "Bancada dupla em pedra natural com torneiras pretas modernas" },
 ];
 
 const Portfolio = () => {
