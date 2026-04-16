@@ -1,19 +1,19 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import kitchenImg from "@/assets/hero-kitchen.jpg";
-import bathroomImg from "@/assets/service-bathroom.jpg";
-import stairsImg from "@/assets/service-stairs.jpg";
-import gourmetImg from "@/assets/service-gourmet.jpg";
-import claddingImg from "@/assets/service-cladding.jpg";
+import realBathroom1 from "@/assets/real-bathroom-1.jpg";
+import realBathroom2 from "@/assets/real-bathroom-2.jpg";
+import realSink1 from "@/assets/real-sink-1.jpg";
+import realCountertop1 from "@/assets/real-countertop-1.jpg";
+import realShowroom2 from "@/assets/real-showroom-2.jpg";
 
 const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá, vim pelo site e gostaria de solicitar um orçamento";
 
 const services = [
-  { title: "Bancadas de Cozinha", desc: "Execução milimétrica com veios contínuos e acabamento em meia-esquadria invisível.", img: kitchenImg, alt: "Bancada de cozinha em mármore branco pela Itu Mármores" },
-  { title: "Banheiros", desc: "Projetos completos com paredes, pisos e bancadas em mármore para ambientes de spa.", img: bathroomImg, alt: "Banheiro revestido em mármore branco com acabamento de alto padrão" },
-  { title: "Escadas", desc: "Escadarias em mármore e granito com acabamento polido e antiderrapante sob medida.", img: stairsImg, alt: "Escadaria em mármore branco com corrimão em ferro forjado" },
-  { title: "Áreas Gourmet", desc: "Bancadas resistentes e elegantes para churrasqueiras e espaços de convivência.", img: gourmetImg, alt: "Área gourmet com bancada em granito escuro premium" },
-  { title: "Revestimentos", desc: "Painéis de pedra natural em grande formato para salas, halls e fachadas.", img: claddingImg, alt: "Parede revestida com mármore branco em sala de estar moderna" },
+  { title: "Bancadas de Cozinha", desc: "Execução milimétrica com veios contínuos e acabamento em meia-esquadria invisível.", img: realCountertop1, alt: "Bancada de cozinha em pedra natural com acabamento premium" },
+  { title: "Banheiros", desc: "Projetos completos com paredes, pisos e bancadas em mármore para ambientes de spa.", img: realBathroom1, alt: "Banheiro revestido em mármore Calacatta com vista panorâmica" },
+  { title: "Cubas Esculpidas", desc: "Peças artesanais em pedra natural com borda bruta, unindo rusticidade e sofisticação.", img: realSink1, alt: "Cuba esculpida em pedra natural com torneira preta moderna" },
+  { title: "Áreas Gourmet", desc: "Bancadas resistentes e elegantes para churrasqueiras e espaços de convivência.", img: realShowroom2, alt: "Showroom com balcão em granito cinza e acabamento premium" },
+  { title: "Revestimentos", desc: "Painéis de pedra natural em grande formato para salas, halls e fachadas.", img: realBathroom2, alt: "Parede revestida com mármore branco Statuário em banheiro de luxo" },
 ];
 
 const Services = () => {
@@ -40,7 +40,6 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {/* Bento-style grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
           {services.map((service, i) => (
             <motion.div
@@ -60,7 +59,6 @@ const Services = () => {
                   loading="lazy"
                 />
               </div>
-              {/* Overlay - always visible on mobile */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end">
                 <div className="p-4 sm:p-6 md:p-8 w-full">
                   <span className="label-caps text-primary block mb-1 sm:mb-2">{service.title}</span>
