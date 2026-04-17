@@ -79,7 +79,7 @@ const About = () => {
                 Desde 1968 transformando ambientes com <span className="italic text-primary">excelência</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base mb-4 sm:mb-6">
-                Há mais de cinco décadas, a Itu Mármores e Granitos une a força da pedra natural à precisão da tecnologia de ponta.
+                Há mais de cinco décadas, a ITU MÁRMORES e Granitos une a força da pedra natural à precisão da tecnologia de ponta.
               </p>
               <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                 Nossa tradição é construída projeto a projeto, com atendimento personalizado e materiais selecionados para garantir o resultado que arquitetos e clientes exigentes esperam: o erro zero.

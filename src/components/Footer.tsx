@@ -9,7 +9,7 @@ const Footer = () => (
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-16">
         {/* Brand */}
         <div className="col-span-2 md:col-span-1">
-          <img src={logoItu} alt="Itu Mármores e Granitos" className="h-12 sm:h-16 w-auto brightness-200 mb-4 sm:mb-6" />
+          <img src={logoItu} alt="ITU MÁRMORES e Granitos" className="h-12 sm:h-16 w-auto brightness-200 mb-4 sm:mb-6" />
           <p className="text-white/30 text-xs sm:text-sm leading-relaxed">
             Há mais de 55 anos transformando ambientes com mármore e granito de alto padrão.
           </p>
@@ -70,7 +70,7 @@ const Footer = () => (
 
       {/* Divider */}
       <div className="border-t border-white/10 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-        <p className="text-white/20 text-[10px] sm:text-xs text-center sm:text-left">© {new Date().getFullYear()} Itu Mármores e Granitos. Todos os direitos reservados.</p>
+        <p className="text-white/20 text-[10px] sm:text-xs text-center sm:text-left">© {new Date().getFullYear()} ITU MÁRMORES e Granitos. Todos os direitos reservados.</p>
         <p className="text-white/20 text-[10px] sm:text-xs">Tradição desde 1968 · Arujá, SP</p>
       </div>
     </div>

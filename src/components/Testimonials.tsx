@@ -8,7 +8,7 @@ const testimonials = [
   {
     name: "Arq. Fernanda Lima",
     role: "Arquiteta de Interiores",
-    text: "Trabalho com a Itu Mármores há 8 anos. A precisão do corte e a qualidade do acabamento são incomparáveis na região. Meus clientes sempre ficam impressionados.",
+    text: "Trabalho com a ITU MÁRMORES há 8 anos. A precisão do corte e a qualidade do acabamento são incomparáveis na região. Meus clientes sempre ficam impressionados.",
   },
   {
     name: "Ricardo Mendes",

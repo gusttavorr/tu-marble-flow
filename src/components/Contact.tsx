@@ -7,7 +7,8 @@ const Contact = () => {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   const contactInfo = [
-    { icon: MapPin, title: "Endereço", lines: ["Rodovia Presidente Dutra, KM203", "Caixa Postal 176", "Arujá - SP · CEP: 07400-970"] },
+    { icon: MapPin, title: "Showroom — São Paulo", lines: ["Alameda Gabriel Monteiro da Silva, 278", "Jardim América — São Paulo/SP"] },
+    { icon: MapPin, title: "Fábrica — Arujá", lines: ["Alameda das Azaléias, 628", "Cidade Nova — Arujá/SP · CEP 07411-440"] },
     { icon: Phone, title: "Telefone", lines: ["(11) 4655-2288"] },
     { icon: Mail, title: "E-mail", lines: ["atendimento@itumarmores.com.br"] },
     { icon: Clock, title: "Horário", lines: ["Seg a Sex: 8h às 18h", "Sábado: 8h às 12h"] },
@@ -58,14 +59,14 @@ const Contact = () => {
             className="lg:col-span-3 rounded-xl overflow-hidden"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.5!2d-46.32!3d-23.39!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdf5c3f4a47abd%3A0x55e2e7599b2c7a2e!2sItu%20M%C3%A1rmores%20e%20Granitos!5e0!3m2!1spt-BR!2sbr!4v1"
+              src="https://www.google.com/maps?q=Alameda+Gabriel+Monteiro+da+Silva,+278,+Jardim+America,+Sao+Paulo,+SP&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Localização Itu Mármores e Granitos"
+              title="Localização ITU MÁRMORES e Granitos — Showroom São Paulo"
               className="w-full h-full min-h-[300px] sm:min-h-[400px]"
             />
           </motion.div>

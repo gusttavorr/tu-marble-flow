@@ -47,7 +47,7 @@ const Highlights = () => {
           <span className="label-caps text-primary mb-3 sm:mb-4 block">Diferenciais</span>
           <div className="line-accent mx-auto mb-6 sm:mb-8" />
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground leading-tight max-w-3xl mx-auto">
-            Por que escolher a <span className="italic text-primary">Itu Mármores</span>
+            Por que escolher a <span className="italic text-primary">ITU MÁRMORES</span>
           </h2>
         </motion.div>
 
