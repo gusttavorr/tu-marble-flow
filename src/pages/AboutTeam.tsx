@@ -6,7 +6,7 @@ const WHATSAPP_URL = "https://wa.me/5511988124466?text=Olá! Gostaria de conhece
 
 const groupCompanies = [
   {
-    name: "Itu Mármores e Granitos",
+    name: "ITU MÁRMORES e Granitos",
     role: "Beneficiamento e Comercialização",
     desc: "A empresa principal do grupo, referência em rochas ornamentais desde 1968. Responsável pelo beneficiamento, corte, acabamento e comercialização de mármores, granitos e pedras exóticas para todo o Brasil e exterior.",
     icon: Gem,
@@ -26,7 +26,7 @@ const groupCompanies = [
 ];
 
 const milestones = [
-  { year: "1968", text: "Fundação da Itu Mármores e Granitos pela família Conceição em Arujá, SP." },
+  { year: "1968", text: "Fundação da ITU MÁRMORES e Granitos pela família Conceição em Arujá, SP." },
   { year: "1980s", text: "Expansão das operações de mineração com a criação da SOMIBRAS e MIC." },
   { year: "1990s", text: "Início das exportações internacionais para Europa, Ásia e Oriente Médio." },
   { year: "2000s", text: "Modernização tecnológica com equipamentos CNC de precisão alemã." },
@@ -78,7 +78,7 @@ const AboutTeam = () => {
               <span className="text-primary">meio século de tradição.</span>
             </h1>
             <p className="text-primary-foreground/70 text-lg leading-relaxed max-w-2xl">
-              A história da Itu Mármores e Granitos é a história da família Conceição — 
+              A história da ITU MÁRMORES e Granitos é a história da família Conceição — 
               uma trajetória que começou em 1968 e se tornou referência nacional e 
               internacional no mercado de rochas ornamentais.
             </p>
@@ -102,7 +102,7 @@ const AboutTeam = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Os irmãos Conceição fundaram a Itu Mármores e Granitos em 1968, na cidade 
+                  Os irmãos Conceição fundaram a ITU MÁRMORES e Granitos em 1968, na cidade 
                   de Arujá, São Paulo. O que começou como uma pequena operação de beneficiamento 
                   de pedras cresceu e se tornou um dos maiores grupos do setor de rochas 
                   ornamentais do Brasil.
@@ -258,12 +258,12 @@ const AboutTeam = () => {
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div {...fadeUp}>
               <MapPin className="text-primary mb-4" size={28} strokeWidth={1} />
-              <h3 className="font-serif text-xl font-medium text-foreground mb-2">Matriz — Arujá</h3>
+              <h3 className="font-serif text-xl font-medium text-foreground mb-2">Fábrica — Arujá</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-1">
-                Rodovia Presidente Dutra, KM 203
+                Alameda das Azaléias, 628
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-1">
-                Arujá — SP, CEP 07400-970
+                Cidade Nova — Arujá/SP, CEP 07411-440
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Fone: (11) 4655-2288
@@ -276,7 +276,7 @@ const AboutTeam = () => {
                 Alameda Gabriel Monteiro da Silva, 278
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-1">
-                São Paulo — SP
+                Jardim América — São Paulo/SP
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed">
                 Fone: (11) 4654-8585
