@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        serif: ["Bodoni Moda", "Georgia", "serif"],
-        sans: ["Bodoni Moda", "Georgia", "serif"],
+        serif: ["Inter", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
