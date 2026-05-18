@@ -76,16 +76,26 @@ const Header = () => {
           >
             Orçamento
           </a>
+          <div className="ml-3 flex items-center gap-2 pl-3 border-l border-white/15" aria-label="Atendimento Brasil e Emirados Árabes Unidos">
+            <span className="text-base leading-none" role="img" aria-label="Brasil" title="Brasil">🇧🇷</span>
+            <span className="text-base leading-none" role="img" aria-label="Emirados Árabes Unidos" title="Emirados Árabes Unidos">🇦🇪</span>
+          </div>
         </nav>
 
-        {/* Mobile toggle */}
-        <button
+        {/* Mobile flags + toggle */}
+        <div className="xl:hidden flex items-center gap-3">
+          <div className="flex items-center gap-1.5" aria-label="Atendimento Brasil e Emirados Árabes Unidos">
+            <span className="text-sm leading-none" role="img" aria-label="Brasil">🇧🇷</span>
+            <span className="text-sm leading-none" role="img" aria-label="Emirados Árabes Unidos">🇦🇪</span>
+          </div>
+          <button
           onClick={() => setIsOpen(!isOpen)}
-          className="xl:hidden p-2.5 text-white rounded-lg active:bg-white/10 transition-colors"
+          className="p-2.5 text-white rounded-lg active:bg-white/10 transition-colors"
           aria-label="Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav - Full screen overlay */}
