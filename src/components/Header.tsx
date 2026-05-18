@@ -77,16 +77,50 @@ const Header = () => {
             Orçamento
           </a>
           <div className="ml-3 flex items-center gap-2 pl-3 border-l border-white/15" aria-label="Atendimento Brasil e Emirados Árabes Unidos">
-            <span className="text-base leading-none" role="img" aria-label="Brasil" title="Brasil">🇧🇷</span>
-            <span className="text-base leading-none" role="img" aria-label="Emirados Árabes Unidos" title="Emirados Árabes Unidos">🇦🇪</span>
+            <img
+              src="https://flagcdn.com/w40/br.png"
+              srcSet="https://flagcdn.com/w80/br.png 2x"
+              width={22}
+              height={16}
+              alt="Brasil"
+              title="Brasil"
+              className="w-[22px] h-4 object-cover rounded-[2px] ring-1 ring-white/20"
+              loading="lazy"
+            />
+            <img
+              src="https://flagcdn.com/w40/ae.png"
+              srcSet="https://flagcdn.com/w80/ae.png 2x"
+              width={22}
+              height={16}
+              alt="Emirados Árabes Unidos"
+              title="Emirados Árabes Unidos"
+              className="w-[22px] h-4 object-cover rounded-[2px] ring-1 ring-white/20"
+              loading="lazy"
+            />
           </div>
         </nav>
 
         {/* Mobile flags + toggle */}
         <div className="xl:hidden flex items-center gap-3">
           <div className="flex items-center gap-1.5" aria-label="Atendimento Brasil e Emirados Árabes Unidos">
-            <span className="text-sm leading-none" role="img" aria-label="Brasil">🇧🇷</span>
-            <span className="text-sm leading-none" role="img" aria-label="Emirados Árabes Unidos">🇦🇪</span>
+            <img
+              src="https://flagcdn.com/w40/br.png"
+              srcSet="https://flagcdn.com/w80/br.png 2x"
+              width={20}
+              height={14}
+              alt="Brasil"
+              className="w-5 h-[14px] object-cover rounded-[2px] ring-1 ring-white/20"
+              loading="lazy"
+            />
+            <img
+              src="https://flagcdn.com/w40/ae.png"
+              srcSet="https://flagcdn.com/w80/ae.png 2x"
+              width={20}
+              height={14}
+              alt="Emirados Árabes Unidos"
+              className="w-5 h-[14px] object-cover rounded-[2px] ring-1 ring-white/20"
+              loading="lazy"
+            />
           </div>
           <button
           onClick={() => setIsOpen(!isOpen)}
